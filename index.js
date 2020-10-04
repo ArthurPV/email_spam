@@ -54,7 +54,7 @@ async function sendEmail() {
 
 	// send mail
 	let info = await transporter.sendMail({
-		from: "arthurpontiervalois@gmail.com",
+		from: "example@gmail.com",
 		to: emailsArray.join(", "),
 		subject: "Is it works ?",
 		text: "It works"
