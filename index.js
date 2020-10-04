@@ -1,3 +1,4 @@
+// Author: ArthurPV
 // import
 const nodemailer = require("nodemailer");
 const fs = require("fs");
