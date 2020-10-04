@@ -9,3 +9,4 @@ It manages to process the data which is contained in the `data/all_emails.json` 
 Install following dependencies:
 `npm install --save nodemailer dotenv`
 
+And that's it.
