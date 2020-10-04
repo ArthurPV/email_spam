@@ -9,10 +9,11 @@ console.log("Welcome to the emails spam script");
 
 // declare variable
 let personsData = '';
-let simpleObject = '';
-let personsArray = '';
+let simpleObject = [];
 let namesArray = [];
 let emailsArray = [];
+let idArray = [];
+console.log(typeof simpleObject);
 
 // initialize getData function
 const getData = path => {
@@ -26,22 +27,29 @@ getData("./data/all_emails.json");
 // get simple object
 // get beetween array for emails and names
 simpleObject = Object.values(personsData);
+console.log(simpleObject[0].length);
 
 const objectToArray = () => {
-	for (let i=0; i <= simpleObject.length; i++) {
-		personsArray = simpleObject[0][i];
+	for (let i=0; i < simpleObject[0].length; i++) {
+		let personsArray = Object.values(simpleObject[0][i]);
+		console.log(personsArray);
 		personsArray = Object.values(personsArray);
-		namesArray.unshift(personsArray[1]);
-		emailsArray.unshift(personsArray[2]);
+		console.log(personsArray)
+		namesArray.push(personsArray[1]);
+		emailsArray.push(personsArray[2]);
+		idArray.push(personsArray[0]);	
 		console.log(personsArray);
 		console.log(namesArray);
 		console.log(emailsArray);
+		console.log(idArray);
 	}
 }
 // call function
 objectToArray();
+console.log(emailsArray);
 
-// send all emails in loop
+// send all emails
+
 async function sendEmail() {
 
 	let transporter = nodemailer.createTransport({
@@ -56,8 +64,8 @@ async function sendEmail() {
 	let info = await transporter.sendMail({
 		from: "example@gmail.com",
 		to: emailsArray.join(", "),
-		subject: "Is it works ?",
-		text: "It works"
+		subject: "Example",
+		html: "Example"
 	});
 
 	transporter.sendMail(info, (err, data) => {
@@ -69,3 +77,4 @@ async function sendEmail() {
 	})
 }
 sendEmail().catch(console.error);
+
