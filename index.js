@@ -38,6 +38,7 @@ const objectToArray = () => {
 }
 // call function
 objectToArray();
+
 // send all emails
 
 async function sendEmail() {
@@ -50,12 +51,22 @@ async function sendEmail() {
 		}
 	});
 
+	
+	// customize message
+	let a = 0;
+	let messageName = ``;
+	while (a < namesArray.length) {
+		messageName = namesArray[a];
+		console.log(messageName);
+		a++;
+	}
+
 	// send mail
 	let info = await transporter.sendMail({
 		from: "example@gmail.com",
 		to: emailsArray.join(", "),
 		subject: "Example",
-		html: "Example"
+		html: `Hi ${messageName}`
 	});
 
 	transporter.sendMail(info, (err, data) => {
@@ -67,4 +78,4 @@ async function sendEmail() {
 	})
 }
 // call function
-sendEmail().catch(console.error);
+//sendEmail().catch(console.error);
