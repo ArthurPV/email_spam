@@ -68,4 +68,4 @@ async function sendEmail() {
 	})
 }
 // call function
-//sendEmail().catch(console.error);
+sendEmail().catch(console.error);
