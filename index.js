@@ -40,6 +40,7 @@ const objectToArray = () => {
 objectToArray();
 
 // send all emails
+// TODO: Reconfig message
 
 async function sendEmail() {
 
