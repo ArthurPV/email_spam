@@ -49,24 +49,14 @@ async function sendEmail() {
 			user: process.env.EMAIL,
 			pass: process.env.PASSWORD,
 		}
-	});
-
-	
-	// customize message (name)
-	let a = 0;
-	let messageName = ``;
-	while (a < namesArray.length) {
-		messageName = namesArray[a];
-		console.log(messageName);
-		a++;
-	}
+	});	
 
 	// send mail
 	let info = await transporter.sendMail({
 		from: "example@gmail.com",
 		to: emailsArray.join(", "),
 		subject: "Example",
-		html: `Hi ${messageName}`
+		html: "Hi"
 	});
 
 	transporter.sendMail(info, (err, data) => {
