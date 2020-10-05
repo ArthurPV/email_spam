@@ -52,7 +52,7 @@ async function sendEmail() {
 	});
 
 	
-	// customize message
+	// customize message (name)
 	let a = 0;
 	let messageName = ``;
 	while (a < namesArray.length) {
