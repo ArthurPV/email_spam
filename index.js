@@ -40,6 +40,7 @@ const objectToArray = () => {
 objectToArray();
 
 // send all emails
+// TODO: Reconfig message section
 
 async function sendEmail() {
 
@@ -51,19 +52,26 @@ async function sendEmail() {
 		}
 	});	
 
+
+	let info;
 	// send mail
-	let info = await transporter.sendMail({
-		from: "example@gmail.com",
-		to: emailsArray.join(", "),
-		subject: "Example",
-		html: "Hi"
-	});
+	for (let i=0; i < namesArray.length; i++) {
+		for (let k=0; k < emailsArray.length; k++) {	
+			info = await transporter.sendMail({
+				from: "example@gmail.com",
+				to: emailsArray[k],
+				subject: "Example",
+				html: `Hi ${namesArray[i]}`
+			});
+		}
+		console.log(`Email: ${idArray[i]} on ${emailsArray.length}`);
+	}	
 
 	transporter.sendMail(info, (err, data) => {
 		if (err) {
 			console.log("Errror: ", err);
 		} else {
-			console.log("Email sent");
+			console.log("All emails sent");
 		}
 	})
 }
