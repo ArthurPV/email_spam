@@ -11,5 +11,4 @@ Install following dependencies:
 
 And that's it. 
 
-## Future
-The feature of email spam it will update in the future.
+
