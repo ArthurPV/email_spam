@@ -10,5 +10,3 @@ Install following dependencies:
 `npm install --save nodemailer dotenv`
 
 And that's it. 
-
-
